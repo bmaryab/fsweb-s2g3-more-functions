@@ -16,9 +16,16 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(path) {
+  const pathArr = path.split("/");
+  return pathArr[pathArr.length-1];
 }
+
+console.log("Görev1-örnek1: ", dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"))
+console.log("Görev1-örnek2: ", dosyaAdiniBul("Beethoven_5.mp3"))
+console.log("Görev1-örnek3: ", dosyaAdiniBul(""))
+console.log("Görev1-ek alıştırma: ", dosyaAdiniBul("'/klasör1/klasör2/dosyam"))
+
 
 /*
   GÖREV 2
@@ -38,9 +45,21 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(numberArr) {
+  if (numberArr.length === 0){
+    return null;
+  }
+  function arrayToplami (total, number) {
+    return total + number;
+  }
+  const aritmetikOrtalama = numberArr.reduce(arrayToplami,0) / numberArr.length;
+  return aritmetikOrtalama;
 }
+
+console.log("Görev2-örnek1: ", ortalamaBul([]))
+console.log("Görev2-örnek2: ", ortalamaBul([4]))
+console.log("Görev2-örnek3: ", ortalamaBul([50, -26, 153, 7]))
+console.log("Görev2-örnek4: ", ortalamaBul([109, 216, 288, 143, 71, 185, -278, 194, 5]))
 
 /*
   GÖREV 3
@@ -62,9 +81,21 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(sayiArrayi, ortalamaCallBack) {
+  if (sayiArrayi.length===0){
+    return null;
+  }
+  let yeniArray = []
+  for (let i=0; i<sayiArrayi.length; i++){
+    if (sayiArrayi[i] >= ortalamaCallBack(sayiArrayi)){
+      yeniArray.push(sayiArrayi[i]);
+    }
+  } return yeniArray;
 }
+console.log("Görev3-örnek1: ", ortalamadanBuyukleriBul([],ortalamaBul))
+console.log("Görev3-örnek2: ", ortalamadanBuyukleriBul([4],ortalamaBul))
+console.log("Görev3-örnek3: ", ortalamadanBuyukleriBul([50, -26, 153, 7],ortalamaBul))
+console.log("Görev3-örnek4: ", ortalamadanBuyukleriBul([109, 216, 288, 143, 71, 185, -278, 194, 5],ortalamaBul))
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
