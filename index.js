@@ -46,7 +46,7 @@ console.log("Görev1-ek alıştırma: ", dosyaAdiniBul("'/klasör1/klasör2/dosy
 */
 
 function ortalamaBul(numberArr) {
-  if (numberArr.length === 0){
+  if (!Array.isArray(numberArr) || numberArr.length === 0){
     return null;
   }
   function arrayToplami (total, number) {
@@ -82,12 +82,13 @@ console.log("Görev2-örnek4: ", ortalamaBul([109, 216, 288, 143, 71, 185, -278,
 */
 
 function ortalamadanBuyukleriBul(sayiArrayi, ortalamaCallBack) {
-  if (sayiArrayi.length===0){
+  if (!Array.isArray(sayiArrayi) || sayiArrayi.length===0){
     return null;
   }
-  let yeniArray = []
+  const yeniArray = [];
+  const ortalama = ortalamaCallBack(sayiArrayi);
   for (let i=0; i<sayiArrayi.length; i++){
-    if (sayiArrayi[i] >= ortalamaCallBack(sayiArrayi)){
+    if (sayiArrayi[i] >= ortalama){
       yeniArray.push(sayiArrayi[i]);
     }
   } return yeniArray;
